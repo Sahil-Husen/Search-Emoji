@@ -16659,3 +16659,19 @@ button.addEventListener('click',() => {
  
   displayEmoji(filteredEmoji);
 })
+
+
+input.addEventListener('keydown',(event)=>{
+  if(event.key === "Enter"){
+    const value = input.value.trim().toLowerCase();
+
+  const filteredEmoji = emojiList.filter((emoji) => {
+    return (
+      Array.isArray(emoji.aliases) &&
+      emoji.aliases.some((alias) => alias.toLowerCase().includes(value))
+    );
+  });
+ 
+  displayEmoji(filteredEmoji);
+  }
+})
